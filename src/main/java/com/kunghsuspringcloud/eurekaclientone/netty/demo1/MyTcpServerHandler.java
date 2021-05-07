@@ -21,8 +21,16 @@ public class MyTcpServerHandler extends ChannelInboundHandlerAdapter {
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         //调用channelActive和channelRead的是同一个线程
         System.out.println(Thread.currentThread().getName() + "server receive message:" + msg);
-        ctx.channel().writeAndFlush(Thread.currentThread().getName() + "accept message "+ msg);
-        ctx.close();
+        ctx.channel().writeAndFlush("server say accept message "+ msg);
+        /*
+            这里假如不调close会怎样？
+            那客户端那边的f.channel().closeFuture().sync()将阻塞住
+            channel应该由服务端关还是客户端关呢？
+         */
+        if(ctx.channel().isOpen() && ((String)msg).contains("再次")){
+            //判断已经收到最后一次消息，假如客户端不进行关闭，那就由服务端进行关闭
+            ctx.close();
+        }
     }
 
     //异常相关处理
