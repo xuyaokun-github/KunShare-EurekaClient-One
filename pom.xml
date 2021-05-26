@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.kunghsu-spring-cloud</groupId>
-	<artifactId>eureka-client-one</artifactId>
+	<artifactId>kunshare-eureka-client-one</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>kunshare-eureka-client-one</name>
 	<description>Demo project for Spring Boot</description>
@@ -78,16 +78,16 @@
 		</dependency>
 
 		<!-- dbcp2数据库连接池 -->
-		<dependency>
+<!--		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-dbcp2</artifactId>
-		</dependency>
+		</dependency>-->
 
-		<dependency>
+<!--		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid-spring-boot-starter</artifactId>
 			<version>1.1.20</version>
-		</dependency>
+		</dependency>-->
 
 		<dependency>
 			<groupId>io.netty</groupId>
