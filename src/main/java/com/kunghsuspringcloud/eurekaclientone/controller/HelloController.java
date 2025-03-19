@@ -5,6 +5,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -19,19 +20,21 @@ public class HelloController implements ApplicationContextAware {
 
     private ApplicationContext context;
 
+//    @Autowired
+    private RedisTemplate redisTemplate;
 
     @Autowired
     private RestTemplate restTemplate;
 
     @PostConstruct
     public void init(){
-        Map<String, RestTemplate> beanMap = context.getBeansOfType(RestTemplate.class);
-        if (beanMap != null){
-        System.out.println(beanMap.size());
-            beanMap.forEach((k,v)->{
-                System.out.println("===============beanMap:" + k);
-            });
-        }
+//        Map<String, RestTemplate> beanMap = context.getBeansOfType(RestTemplate.class);
+//        if (beanMap != null){
+//        System.out.println(beanMap.size());
+//            beanMap.forEach((k,v)->{
+//                System.out.println("===============beanMap:" + k);
+//            });
+//        }
 
     }
 
